@@ -1,0 +1,148 @@
+{
+  "name": "tanstack-starter",
+  "generated": "2026-01-19",
+  "description": "Full-stack TanStack Start application with SSR, server functions, TanStack Query, authentication, i18n, and form handling",
+  "entryPoints": {
+    "server": "src/server.ts",
+    "router": "src/router.tsx",
+    "rootLayout": "src/routes/__root.tsx",
+    "home": "src/routes/index.tsx"
+  },
+  "structure": {
+    "routes": "src/routes/",
+    "components": "src/components/",
+    "uiComponents": "src/components/ui/",
+    "integrations": "src/integrations/",
+    "lib": "src/lib/",
+    "hooks": "src/hooks/",
+    "data": "src/data/",
+    "i18n": "src/paraglide/",
+    "messages": "messages/"
+  },
+  "dependencies": {
+    "framework": {
+      "@tanstack/react-start": "^1.153.0",
+      "@tanstack/react-router": "^1.151.6",
+      "react": "^19.2.3"
+    },
+    "state": {
+      "@tanstack/react-query": "^5.90.19",
+      "@tanstack/react-form": "^1.27.7",
+      "@tanstack/react-table": "^8.21.3"
+    },
+    "auth": {
+      "better-auth": "^1.4.15"
+    },
+    "i18n": {
+      "@inlang/paraglide-js": "^2.9.0"
+    },
+    "styling": {
+      "tailwindcss": "^4.1.18",
+      "class-variance-authority": "^0.7.1"
+    },
+    "build": {
+      "vite": "^7.3.1",
+      "nitro": "nightly"
+    }
+  },
+  "routes": {
+    "pages": [
+      { "path": "/", "file": "src/routes/index.tsx", "purpose": "Landing page" },
+      { "path": "/demo/i18n", "file": "src/routes/demo.i18n.tsx", "purpose": "i18n demo" },
+      { "path": "/demo/start/server-funcs", "file": "src/routes/demo/start.server-funcs.tsx", "purpose": "Server functions demo" },
+      { "path": "/demo/start/api-request", "file": "src/routes/demo/start.api-request.tsx", "purpose": "API request demo" },
+      { "path": "/demo/start/ssr/", "file": "src/routes/demo/start.ssr.index.tsx", "purpose": "SSR demos index" },
+      { "path": "/demo/start/ssr/spa-mode", "file": "src/routes/demo/start.ssr.spa-mode.tsx", "purpose": "SPA mode rendering" },
+      { "path": "/demo/start/ssr/full-ssr", "file": "src/routes/demo/start.ssr.full-ssr.tsx", "purpose": "Full SSR rendering" },
+      { "path": "/demo/start/ssr/data-only", "file": "src/routes/demo/start.ssr.data-only.tsx", "purpose": "Data-only SSR" },
+      { "path": "/demo/tanstack-query", "file": "src/routes/demo/tanstack-query.tsx", "purpose": "TanStack Query demo" },
+      { "path": "/demo/better-auth", "file": "src/routes/demo/better-auth.tsx", "purpose": "Authentication demo" },
+      { "path": "/demo/table", "file": "src/routes/demo/table.tsx", "purpose": "TanStack Table demo" },
+      { "path": "/demo/form/simple", "file": "src/routes/demo/form.simple.tsx", "purpose": "Simple form demo" },
+      { "path": "/demo/form/address", "file": "src/routes/demo/form.address.tsx", "purpose": "Address form demo" }
+    ],
+    "api": [
+      { "path": "/api/auth/$", "file": "src/routes/api/auth/$.ts", "purpose": "Better Auth handler" },
+      { "path": "/demo/api/tq-todos", "file": "src/routes/demo/api.tq-todos.ts", "purpose": "Todos API" },
+      { "path": "/demo/api/names", "file": "src/routes/demo/api.names.ts", "purpose": "Names API" }
+    ]
+  },
+  "modules": {
+    "router": {
+      "path": "src/router.tsx",
+      "exports": ["getRouter"],
+      "purpose": "TanStack Router configuration with SSR Query integration and i18n URL rewriting"
+    },
+    "server": {
+      "path": "src/server.ts",
+      "exports": ["default"],
+      "purpose": "Server entry point with Paraglide middleware"
+    },
+    "auth": {
+      "path": "src/lib/auth.ts",
+      "exports": ["auth"],
+      "purpose": "Better Auth server configuration"
+    },
+    "authClient": {
+      "path": "src/lib/auth-client.ts",
+      "exports": ["authClient"],
+      "purpose": "Better Auth React client"
+    },
+    "utils": {
+      "path": "src/lib/utils.ts",
+      "exports": ["cn"],
+      "purpose": "Utility for merging Tailwind classes"
+    },
+    "tanstackQuery": {
+      "path": "src/integrations/tanstack-query/root-provider.tsx",
+      "exports": ["getContext", "Provider"],
+      "purpose": "QueryClient factory and provider"
+    },
+    "form": {
+      "path": "src/hooks/demo.form.ts",
+      "exports": ["useAppForm"],
+      "purpose": "TanStack Form hook with custom field components"
+    }
+  },
+  "components": {
+    "ui": [
+      { "name": "Button", "path": "src/components/ui/button.tsx", "variants": ["default", "destructive", "outline", "secondary", "ghost", "link"] },
+      { "name": "Input", "path": "src/components/ui/input.tsx" },
+      { "name": "Label", "path": "src/components/ui/label.tsx" },
+      { "name": "Select", "path": "src/components/ui/select.tsx" },
+      { "name": "Slider", "path": "src/components/ui/slider.tsx" },
+      { "name": "Switch", "path": "src/components/ui/switch.tsx" },
+      { "name": "Textarea", "path": "src/components/ui/textarea.tsx" }
+    ],
+    "app": [
+      { "name": "Header", "path": "src/components/Header.tsx", "purpose": "Main navigation sidebar" },
+      { "name": "LocaleSwitcher", "path": "src/components/LocaleSwitcher.tsx", "purpose": "i18n locale switcher" },
+      { "name": "FormComponents", "path": "src/components/demo.FormComponents.tsx", "purpose": "Demo form field components" }
+    ]
+  },
+  "configuration": {
+    "aliases": {
+      "@/*": "./src/*"
+    },
+    "locales": ["en", "de"],
+    "scripts": {
+      "dev": "vite dev --port 3000",
+      "build": "vite build",
+      "preview": "vite preview",
+      "test": "vitest run",
+      "lint": "biome lint",
+      "format": "biome format",
+      "check": "biome check"
+    }
+  },
+  "testing": {
+    "framework": "vitest",
+    "testingLibrary": "@testing-library/react"
+  },
+  "statistics": {
+    "sourceFiles": 46,
+    "routes": 16,
+    "uiComponents": 7,
+    "locales": 2
+  }
+}
